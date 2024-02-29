@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language=“JavaScript” type=“text/JavaScript” src=semana1.js”>
+    </script>
+
+    <title>semana1</title>
+</head>
+
+<body>
+
+    <script>
+
+        while (true) {
+
+            var inputData = prompt("Por favor, digite um dado:");
+
+            if (inputData === null) {
+                alert("Você cancelou. Obrigado por visitar esta página.");
+                break; 
+            }
+
+            function verificarTipoDado(data) {
+                if (!isNaN(data)) {
+                    return 'Number';
+                } else if (data.toLowerCase() === 'true' || data.toLowerCase() === 'false') {
+                    return 'Boolean';
+                } else if (data.startsWith('[') && data.endsWith(']')) {
+                    return 'Array';
+                } else if (data.startsWith('{') && data.endsWith('}')) {
+                    return 'Object';
+                } else if (typeof data === 'function') {
+                    return 'Function';
+                } else if (data === 'null') {
+                    return 'Null';
+                } else if (typeof data === 'undefined') {
+                    return 'Undefined';
+                } else {
+                    return 'String';
+                }
+            }
+
+            var tipoDado = verificarTipoDado(inputData);
+            alert("Você digitou: " + inputData + "\nO tipo do dado informado é: " + tipoDado);
+        }  </script>
+
+
+    Números:<br><br>
+
+    Entrada do usuário: 42<br>
+    Tipo identificado: Number<br><br>
+    Texto (String):<br><br>
+
+    Entrada do usuário: "Olá, mundo!"<br>
+    Tipo identificado: String<br><br>
+    Valores booleanos:<br><br>
+
+    Entrada do usuário: true<br>
+    Tipo identificado: Boolean<br><br>
+    Arrays:<br><br>
+
+    Entrada do usuário: [1, 2, 3]<br>
+    Tipo identificado: Array<br><br>
+    Objetos:<br>
+
+    Entrada do usuário: {"chave": "valor"}<br>
+    Tipo identificado: Object<br><br>
+    Funções:<br><br>
+
+    Entrada do usuário: function soma(a, b) { return a + b; }<br>
+    Tipo identificado: Function<br><br>
+    Valor null:<br><br>
+
+    Entrada do usuário: null<br>
+    Tipo identificado: Null<br><br>
+    Valor undefined:<br><br>
+
+    Entrada do usuário: undefined<br>
+    Tipo identificado: Undefined<br><br>
+    Outros valores:<br><br>
+
+    Entrada do usuário: xyz123<br>
+    Tipo identificado: String<br>
+</body>
+
+</html>
