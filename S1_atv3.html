@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<body>
+
+<script>
+    
+    let numero = parseInt(prompt("Digite um número inteiro positivo:"));
+
+    if (!isNaN(numero) && numero >= 0) {
+        let resultado = 1;
+        for (let i = 2; i <= numero; i++) {
+            resultado *= i;
+        }
+        alert("O fatorial de " + numero + " é: " + resultado);
+    } else {
+        alert("Por favor, digite um número inteiro positivo válido.");
+    }
+</script>
+
+</body>
+</html>
