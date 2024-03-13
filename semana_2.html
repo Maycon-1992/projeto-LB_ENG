@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <input type="text" id="cadastro" placeholder="Digite um cadastro">
+    <button onclick="adicionarCadastro()">Adicionar</button>
+
+    <h3>Cadastros em Ordem Alfabética:</h3>
+    <ol id="cadastrosLista"></ol>
+
+    <script>
+        const cadastros = [];
+
+        function adicionarCadastro() {
+            const novoCadastro = document.getElementById('cadastro').value.trim();
+            if (novoCadastro !== '') {
+                cadastros.push(novoCadastro);
+                cadastros.sort();
+                document.getElementById('cadastrosLista').innerHTML = cadastros.map(cadastro => `<li>${cadastro}</li>`).join('');
+                document.getElementById('cadastro').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
