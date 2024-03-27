@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <style>
+    .hidden {
+      display: none;
+    }body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: limegreen;
+}
+
+form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid limegreen;
+    border-radius: 5px;
+    background-color: black;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <form id="myForm">
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="telefone">Telefone:</label><br>
+    <input type="tel" id="telefone" name="telefone" required><br>
+
+    <label for="celular">Celular:</label><br>
+    <input type="tel" id="celular" name="celular" required><br>
+
+    <input type="checkbox" id="professorCheckbox" name="professorCheckbox">
+    <label for="professorCheckbox">Professor</label><br>
+
+    <div id="professorFields" class="hidden">
+      <label for="area">Área:</label><br>
+      <input type="text" id="area" name="area"><br>
+
+      <label for="matricula">Matrícula:</label><br>
+      <input type="text" id="matricula" name="matricula"><br>
+
+      <label for="lattes">Lattes:</label><br>
+      <input type="text" id="lattes" name="lattes"><br>
+    </div>
+
+    <input type="checkbox" id="alunoCheckbox" name="alunoCheckbox">
+    <label for="alunoCheckbox">Aluno</label><br>
+
+    <div id="alunoFields" class="hidden">
+      <label for="curso">Curso:</label><br>
+      <input type="text" id="curso" name="curso"><br>
+
+      <label for="matriculaAluno">Matrícula:</label><br>
+      <input type="text" id="matriculaAluno" name="matriculaAluno"><br>
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    const professorCheckbox = document.getElementById('professorCheckbox');
+    const alunoCheckbox = document.getElementById('alunoCheckbox');
+    const professorFields = document.getElementById('professorFields');
+    const alunoFields = document.getElementById('alunoFields');
+
+    professorCheckbox.addEventListener('change', function () {
+      if (this.checked) {
+        professorFields.classList.remove('hidden');
+        alunoCheckbox.checked = false;
+        alunoFields.classList.add('hidden');
+      } else {
+        professorFields.classList.add('hidden');
+      }
+    });
+
+    alunoCheckbox.addEventListener('change', function () {
+      if (this.checked) {
+        alunoFields.classList.remove('hidden');
+        professorCheckbox.checked = false;
+        professorFields.classList.add('hidden');
+      } else {
+        alunoFields.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
